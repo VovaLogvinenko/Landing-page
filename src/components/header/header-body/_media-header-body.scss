@@ -1,0 +1,19 @@
+@media (max-width: 809px) {
+    .data__button-one {margin-bottom: 16px;}
+}
+
+@include tablet {
+    .header-body {
+        flex-direction: column;
+
+        .data-info {animation-delay: .8s;}
+
+        &__image {display: none;}
+    
+        &__data {
+            align-items: center;
+            text-align: center;
+        }
+    }
+    
+}

@@ -1,0 +1,30 @@
+@include tablet {
+    .main-bottom {
+        flex-direction: column;
+        margin-top: 100px;
+
+        .trusted {
+            align-items: center;
+            &__title {text-align: center;}
+        }
+        
+        .main-bottom__signup {
+            margin-top: 80px;
+            padding: 0;
+            
+            width: 90%;
+
+            &-background {display: none;}
+        }
+    }
+    
+}
+
+@include mobileL {
+    .main-bottom {
+        margin-top: 200px;
+        
+        .trusted {&__companies {grid-gap: 50px;}}
+        .main-bottom__signup {width: 100%;}
+    }
+}

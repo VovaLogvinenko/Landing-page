@@ -1,0 +1,22 @@
+@include tablet {
+    .big-data{
+        .steps {
+            flex-direction: column;
+
+            max-width: 300px;
+            margin-top: 45px;
+    
+            &__block:not(:first-child) {margin-top: 40px;}
+            
+            .steps__block.active {animation-delay: .2s;}
+        }
+    }
+}
+
+@media (min-height: 850px) {
+    .big-data__info {
+        margin-top: 120px;
+
+        &.active {animation: marginZero .3s ease forwards;}
+    }
+}

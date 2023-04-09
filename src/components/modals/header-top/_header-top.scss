@@ -1,0 +1,96 @@
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 30px 0;
+
+    &__logo {
+        opacity: 0;
+        animation: slideRight .8s ease forwards;
+    }
+
+    &__block-nav {
+        display: flex;
+        align-items: center;
+    }
+
+    &__nav {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+    }
+
+    
+    &__link {
+        position: relative;
+        
+        font-size: rem(14);
+        margin-right: 40px;
+        
+        opacity: 0;
+        transition: all .5s ease;
+        animation: slideTop .5s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+    }
+    
+    &__link:hover {color: $visual-color}
+
+    &__link-arrow {
+        display: inline-block;
+        position: absolute;
+
+        left: rem(50);
+        top: rem(-4);
+
+        font-size: rem(19);
+
+        opacity: 0;
+        animation: slideTopArrow .5s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+        transform: rotate(90deg);
+        cursor: pointer;
+    }
+
+    &__link-arrow:hover {color: $visual-color}
+
+    &__button {
+        position: relative;
+
+        @include button(em(12), em(24), $visual-color, $visual-white-color);
+
+        border: 1px solid $visual-color;
+        border-radius: 23px;
+
+        opacity: 0;
+        transition: all .5s ease;
+        animation: slideTop .5s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+        clip-path: inset(-1px round 23px);
+        
+        &:hover {color: #FFFFFF;}
+        
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: $visual-color;
+
+            top: 0;
+            left: -2px;
+
+            width: 0;
+            height: 100%;
+
+            border-radius: 23px;
+            transition: all .5s ease;
+            z-index: -1;
+        }
+        
+        &:hover::after {width: 103%;}
+    }
+}
+
+// Short media-query
+@include tablet {
+    .header-top__block-nav {display: none;}
+}

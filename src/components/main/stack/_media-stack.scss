@@ -1,0 +1,86 @@
+@include tablet {
+    .stack {
+        flex-direction: column-reverse;
+        
+        .stack__circle {
+            margin-right: 0;
+            margin-top: 80px;
+        }
+
+        .stack__text-block {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+}
+
+@include mobileL {
+    .stack {
+        overflow: hidden;
+
+        // Reset main block circle to default
+        .stack__circle {
+            height: auto;
+            width: 100%;
+
+            margin: auto;
+            margin-top: 30px;
+            
+            border: 0;
+            border-radius: 0;
+
+            transform: scale(0);
+            
+            &.active {
+                animation: zoomSlide 1s ease forwards;
+                animation-delay: .1s;
+            }
+            
+            // Active one more block with img
+            .toggle {display: block;}
+
+            // Remove middle/small circle
+            &::before, &::after {display: none;}
+
+            .stack__circle-items {
+                display: flex;
+
+                width: calc(250px * 14);
+
+                animation: slide 10s linear infinite;
+                
+                // Reset to default block item
+                .reset {
+                    position: relative;
+
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    top: 0;
+                    left: 0;
+                    
+                    width: 250px;
+                    height: 100px;
+                    
+                    opacity: 1;
+                    background-color: inherit;
+                    box-shadow: none;
+                    
+                    &.active {animation: none;}
+
+                    &:hover {transform: scale(1);}
+                }
+
+                .item {
+                    position: static;
+                    
+                    width: 100px;
+                    height: 80px;
+                }
+            }
+        }
+    }
+}

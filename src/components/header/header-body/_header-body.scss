@@ -1,0 +1,108 @@
+.header-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 60px;
+
+    &__image {
+        opacity: 0;
+        animation: zoomIn 1.5s ease forwards, floatObject 4s ease-in-out infinite;
+        animation-delay: 2.4s, 3.9s;
+    }
+
+    &__data {
+        display: flex;
+        align-items: flex-start;
+        flex-direction: column;
+
+        .data-info {
+            opacity: 0;
+            animation: slideDown 1s ease forwards;
+            animation-delay: 1.1s;
+            
+            @extend %info;
+
+            &__link {text-decoration: underline;}
+        }
+
+        .data {
+            &__title {
+                font-size: rem(48);
+                font-family: $main-font-bold;
+                margin-top: $marginM;
+                opacity: 0;
+                animation: slideRight 1s ease forwards;
+                animation-delay: 1.4s;
+            }
+
+            &__text {
+                @extend %text;
+                margin-top: $marginM;
+                opacity: 0;
+                animation: slideTop 1s ease forwards;
+                animation-delay: 1.1s;
+            }
+
+            &__buttons {margin-top: $marginM}
+
+            &__button-one {
+                @include button(em(12), em(24), $visual-white-color, $visual-color);
+                margin-right: 16px;
+                border: 0px;
+                border-radius: 23px;
+                transition: all .5s ease;
+                opacity: 0;
+                animation: slideTop 1s ease forwards;
+                animation-delay: 1.7s;
+                clip-path: inset(0 round 23px);
+                
+                &:hover {color: $visual-color;}
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    background: $visual-white-color;
+                    top: 0;
+                    left: -1px;
+                    width: 0;
+                    height: 100%;
+                    border-radius: 23px;
+                    transition: all .5s ease;
+                    z-index: -1;
+                }
+
+                &:hover::after {width: 101%;}
+            }
+            
+            &__button-two {
+                position: relative;
+                @include button(em(12), em(24), $visual-color, $visual-white-color);
+                border: 0;
+                border-radius: 23px;
+                transition: all .3s linear;
+                opacity: 0;
+                animation: slideTop 1s ease forwards;
+                animation-delay: 1.9s;
+                clip-path: inset(0 round 23px);
+
+                &:hover {color: $visual-white-color}
+
+                &::after {
+                    position: absolute;
+                    content: "";
+                    background: $visual-color;
+                    top: 0;
+                    left: 0;
+                    width: 0;
+                    height: 100%;
+                    border-radius: 23px;
+                    transition: all .5s;
+                    z-index: -1;
+                }
+
+                &:hover::after {width: 100%;}
+            }   
+            
+        }
+    }
+}

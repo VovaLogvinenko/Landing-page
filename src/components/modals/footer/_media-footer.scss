@@ -1,0 +1,99 @@
+@include tablet {
+    .footer {
+        display: block;
+
+        &__block {margin-right: 0}
+
+        &__info {
+            display: grid;
+            justify-items: center;
+
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            
+            grid-row-gap: 50px;
+            grid-template-areas: 
+            "a a1 a2"
+            "b b1 b2";
+        }
+
+        &__newsletter {
+            grid-area: b;
+            justify-self: start;
+        }
+        &__description {justify-self: start;}
+        &__support {grid-area: a2;}
+        &__developers {grid-area: b2}
+    }
+}
+
+@media (max-width: 550px) {
+    .footer {
+        &__info {
+            justify-content: center;
+
+            grid-template-columns: repeat(2, auto);
+            grid-template-rows: repeat(3, auto);
+
+            grid-column-gap: 30%;
+            grid-template-areas: 
+            "a a"
+            "b b1"
+            "c c1" 
+            "g g"; 
+        }
+        
+        &__description {
+            display: flex;
+            align-items: center;
+            
+            grid-area: a;
+            justify-self: start;
+            
+            max-width: 100%;
+
+            &-first {
+                max-width: 200px;
+                margin-right: 80px;
+            }
+        }
+
+        &__social {
+            display: flex;
+            flex-direction: column;
+
+            &-link {margin-top: $marginS;}
+        }
+
+        &__title {white-space: normal}
+
+        &__support {
+            grid-area: b1;
+            justify-self: start;
+        }
+        &__product {grid-area: b;}
+        &__developers {grid-area: c1;}
+        &__company {grid-area: c;}
+        &__newsletter {grid-area: g;}
+    }
+}
+
+@include mobileS {
+    .footer {
+        &__info {
+            justify-content: start;
+            grid-column-gap: 50px;
+        }
+        
+        &__description {
+            text-align: start;
+            justify-self: start;
+        }
+
+        &__product {justify-self: start;}
+        &__developers {justify-self: end;}
+        &__company {justify-self: start;}
+        &__support {justify-self: start;}
+        &__newsletter {justify-self: start;}
+    }
+}

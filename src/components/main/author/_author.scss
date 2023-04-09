@@ -1,0 +1,106 @@
+.author {
+    margin-top: 70px;
+    
+    &__background {
+        position: absolute;
+
+        clip-path: polygon(0 23%, 100% 0, 100% 79%, 0% 100%);
+        background: linear-gradient(175.54deg, #F9F0FF 25.81%, #E2F1FF 96.38%);
+
+        opacity: 0.47;
+
+        height: 730px;
+        width: 100%;
+        left: 0;
+
+        z-index: -1;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        height: 750px;
+        padding: 200px 0;
+    }
+
+    &__quote {
+        font-size: rem(24);
+        line-height: rem(32);
+    }
+
+    &__portrait {margin-top: 32px;}
+    &__name {margin-top: 32px}
+    &__name, &__cto {font-family: $main-font-bold;}
+    
+    &__companies {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        border-top: 1px solid #DEC9FA;
+
+        width: 100%;
+        
+        margin-top: 32px;
+        padding-top: 32px;
+    }
+    
+    &__companies-function {
+        position: relative;
+        width: 100%;
+    }
+
+    .companies__arrows {display: none;}
+    
+    .item {
+        cursor: pointer;
+        transition: $compain-transition;
+        z-index: 2;
+
+        &:hover {
+            transition: $compain-transition;
+            transform: scale(1.1);
+        }
+    }
+
+    // General style 
+    .tonkean *, 
+    .bigspring *,
+    .clearbit *,
+    .mine *,
+    .shake * {transition: $compain-transition;}
+    
+    // Tonkean svg
+    .tonkean:hover *{@include fillSvg(#353A3E);}
+    
+    // Bigspring svg
+    .bigspring:hover path {@include fillSvg(#101419)}
+    .bigspring:hover path:nth-child(1){@include fillSvg(#125EEC);}
+    .bigspring:hover path:nth-child(2){@include fillSvg(#00DCC0);}
+    
+    // Clearbit svg
+    .clearbit:hover path {@include fillSvg(#273267);}
+    .clearbit:hover path:nth-child(1){@include fillSvg(#1797FC);}
+    .clearbit:hover path:nth-child(2){@include fillSvg(#54B9FD);}
+    .clearbit:hover path:nth-child(3){@include fillSvg(#DDF1FE);}
+
+    // Mine svg 
+    .mine:hover path {@include fillSvg(#2B2A35);}
+
+    // Shake svg 
+    .shake:hover path {@include fillSvg(#1C1C1E);}
+    .shake:hover path:nth-child(1){@include fillSvg(#B89EFF);}
+    .shake:hover path:nth-child(2){@include fillSvg(#A17FFF);}
+    .shake:hover path:nth-child(3){@include fillSvg(#794FEC);}
+    .shake:hover path:nth-child(4){@include fillSvg(#562DC2);}
+
+    // Shake bottom lines 
+    .shake:hover path:nth-child(8){@include fillSvg(#B89EFF);}
+    .shake:hover path:nth-child(7){@include fillSvg(#A17FFF);}
+    .shake:hover path:nth-child(6){@include fillSvg(#794FEC);}
+    .shake:hover path:nth-child(5){@include fillSvg(#562DC2);}
+}

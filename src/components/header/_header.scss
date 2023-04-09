@@ -1,0 +1,16 @@
+@import 'components/modals/header-top/header-top';
+@import 'header-body/header-body';
+@import 'header-body/media-header-body';
+
+.header {
+    background: linear-gradient(180deg, #FFFFFF 0%, #E2F1FF 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 79%, 0% 100%);
+
+    min-height: 700px;
+    height: 100%;
+
+    padding-bottom: 100px;
+    overflow-y: auto;
+}
+
+@import 'media-header';

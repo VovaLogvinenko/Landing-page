@@ -1,0 +1,72 @@
+// Purple block on site
+%info {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    background: #F7F1FF;
+    border-radius: 20px;
+    color: $visual-color;
+    
+        .over-title__image {
+            margin-right: 12px
+        }
+    }
+
+// Title for objects in main
+%title {
+    font-family: Metropolis-Bold;
+    font-weight: 700;
+    font-size: rem(32);
+    line-height: rem(40);
+    margin-top: $marginM
+}
+
+// Text for objects in main
+%text {
+    line-height: rem(24);
+    color: $secondary-text-color;
+    margin-top: $marginM;
+}
+
+// Background for svg in Big Data
+%background_big-data {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    z-index: -1;
+}
+
+// Stack background for items
+%stackBg {
+    display: inline-block;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    box-shadow: 4px 4px 12px rgba(137, 137, 162, 0.122);
+}
+
+// Stack text animation
+%stackAnimations {
+    opacity: 0;
+
+    &.active {
+        animation: slideLeft .6s ease forwards;
+        animation-delay: .1s;
+    }
+}
+
+// Transition and hove for stack svg items 
+%transitionHoverSvg {
+    transition: all .4s ease;
+    opacity: 0;
+
+    &:hover {
+        transition: all .4s ease;
+        transform: scale(1.2)
+    }
+}

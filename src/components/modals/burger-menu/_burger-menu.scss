@@ -1,0 +1,111 @@
+.burger-menu {
+    display: none;
+    position: relative;
+
+    &__button {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 30px;
+        height: 20px;
+
+        opacity: 0;
+        animation: slideDown .5s ease forwards;
+        animation-delay: .4s;
+
+        z-index: 4;
+        cursor: pointer;
+
+        .line {
+            width: 100%;
+            height: 2px;     
+
+            background-color: #000000;
+            transition: .4s;
+        }
+    }
+
+    &__background {
+        position: fixed;
+        visibility: hidden;
+
+        top: 28px;
+        right: 3px;
+
+        min-height: 55px;
+        width: 55px;
+
+        background-color: #ffffff;
+        border-radius: 50%;
+        transition: all .6s ease-in-out;
+        z-index: 2;
+    }
+
+    &__nav {
+        position: fixed;
+
+        top: 20%;
+        left: calc(50% - (130px / 2));
+
+        opacity: 0;
+        transition: all 1s ease;
+        z-index: 3;
+
+        &-list {
+            position: relative;
+
+            display: flex;
+            flex-direction: column;
+            
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        // Nav animations
+        &-entering {
+            animation: slideRightNav .5s ease forwards;
+            animation-delay: .1s;
+        }
+
+        &-entered {opacity: 1;}
+
+        &-exiting {
+            animation: slideLeftNav .4s ease forwards;
+            animation-delay: .1s;
+        }
+    }
+
+    &__about {
+        display: flex;
+        align-items: center;
+
+        max-width: max-content;
+    }
+
+    &__link-arrow {
+        display: inline-block;
+
+        padding: 5px 15px;
+        margin-top: rem(-15);
+        
+        font-size: rem(29);
+        transform: rotate(90deg);
+        cursor: pointer;
+    }
+
+    &__link {
+        width: max-content;
+        font-size: rem(24);
+
+        &:not(:first-child) {margin-top: 16px;}
+    }
+
+}
+
+// Short media-query
+@include tablet {
+    .burger-menu {display: inline-block;}
+}

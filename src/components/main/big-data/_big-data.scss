@@ -1,0 +1,74 @@
+.big-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+
+    &__info {
+        @extend %info;
+        transform: scale(0);
+
+        &.active {
+            transition: all .5s ease;
+            transform: scale(1);
+        }
+    }
+
+    &__title {
+        @extend %title;
+        opacity: 0;
+        &.active {animation: slideLeft 1s ease forwards;}
+    }
+
+    &__text {
+        @extend %text;
+        max-width: 700px;
+        opacity: 0;
+        &.active {animation: slideRight 1s ease forwards;}
+    }
+
+    .steps {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+
+        margin-top: 36px;
+
+        &__block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            flex-basis: 33%;
+            opacity: 0;
+
+            &.active {
+                animation: jumpingSlideLeft 1.5s ease forwards;
+                animation-delay: calc(.1s * var(--i));
+            }
+        }
+
+        &__image-block {position: relative;}
+
+        &__background-bussines {@include big-data(#E6F7FF)}
+        &__background-algorithm {@include big-data(#FFF1F0)}
+        &__background-data {@include big-data(#F6FFED)}
+
+        &__image {position: relative;}
+
+        &__title {
+            margin-top: $marginM;
+            
+            font-family: $main-font-bold;
+            font-weight: 700;
+            font-size: rem(16);
+        }
+
+        &__text {
+            @extend %text;
+            margin-top: $marginS;
+        }
+    }
+}

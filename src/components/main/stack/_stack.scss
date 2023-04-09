@@ -1,0 +1,106 @@
+.stack {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 200px;
+
+    .toggle {display: none;}
+
+    .stack__circle {
+        // Big circle
+        position: relative;
+        min-width: 400px;
+        max-width: 400px;
+        height: 400px;
+        margin-right: 88px;
+        border: 1px solid #EEDFF9;
+        border-radius: 50%;
+
+        // Medium circle
+        &::before {
+            position: absolute;
+            content: "";
+            top: calc(50% - (300px / 2));
+            left: calc(50% - (300px / 2));
+            min-width: 300px;
+            height: 300px;
+            border: 1px solid #EEDFF9;
+            border-radius: 50%;
+        }
+
+        // Small circle
+        &::after {
+            position: absolute;
+            content: "";
+            top: calc(50% - (200px / 2));
+            left: calc(50% - (200px / 2));
+            min-width: 200px;
+            height: 200px;
+            border: 1px solid #EEDFF9;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .stack__circle-items {
+            width: 100%;
+            height: 100%;
+        }
+
+        // Svg item in circle
+        .item {
+            position: absolute;
+            top: calc(50% - (50px / 2));
+            left: calc(50% - (50px / 2));
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+
+        // Center logo block
+        &-logo {
+            display: inline-block;
+            position: absolute;
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            top: calc(50% - (110px / 2));
+            left: calc(50% - (110px / 2));
+            box-shadow: 4px 4px 12px rgba(137, 137, 162, 0.122);
+        }
+
+        // Other blocks position
+        &-snowflake {@include advancedStackBg(-40px, calc(50% - (80px / 2)), snowflake)}
+
+        &-google {@include advancedStackBg(40px, -5px, google);}
+
+        &-mysql {@include advancedStackBg(70px, 280px, mysql);}
+
+        &-redshift {@include advancedStackBg(180px, 305px, redshift);}
+
+        &-azure {@include advancedStackBg(180px, 10px, azures);}
+
+        &-bigquery {@include advancedStackBg(280px, 245px, bigquery);}
+
+        &-amazon {@include advancedStackBg(350px, 100px, amazon);}
+    }
+
+    .stack__text-block {
+
+        // Animation for stack texts
+        .stack__info{@extend %stackAnimations;}
+
+        .stack__title{@extend %stackAnimations;}
+
+        .stack__text{@extend %stackAnimations;}
+    }
+    
+
+    &__info {
+        @extend %info;
+        max-width: max-content
+    }
+
+    &__title {@extend %title;}
+
+    &__text {@extend %text;}
+}

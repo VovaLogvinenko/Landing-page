@@ -1,0 +1,104 @@
+.main-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+    margin-top: 70px;
+
+    .trusted {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        flex-basis: 47%;
+
+        overflow: hidden;
+        
+        &__title {@extend %title;}
+        
+        &__text {
+            @extend %text;
+            position: relative;
+            text-align: center;
+
+            width: 100%;
+            margin-top: 36px;
+            
+            &::after {
+                content: "";
+                position: absolute;
+                background-color: #D6D6D6;
+
+                width: 35%;
+                height: 1px;
+
+                top: 11px;
+                left: 0px;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: #D6D6D6;
+
+                width: 35%;
+                height: 1px;
+
+                top: 11px;
+                right: 0px;
+            }
+        }
+
+        &__companies {
+            display: grid;
+            
+            grid-template-columns: 2fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            grid-gap: 70px;
+            grid-column-gap: 110px;
+            
+            align-items: center;
+            justify-items: flex-start;
+            
+            margin-top: 36px;
+
+            // General styles
+            .company {cursor: pointer;}
+            
+            .accenture *, .react *, .airbnb *, .sky *{transition: $compain-transition;}
+
+            // Accenture svg hover
+            .accenture:hover path:nth-child(1) {@include fillSvg(#A100FE);}
+            .accenture:hover path:nth-child(2) {@include fillSvg(#000000);}
+
+            // React svg hover
+            .react:hover path:nth-child(1), .react:hover path:nth-child(3){@include fillSvg(#61DBFB);}
+            
+            // Airbnb svg hover
+            .airbnb:hover path {@include fillSvg(#FF5A5F);}
+
+            // Sky svg hover 
+            .sky:hover path {@include fillSvg(#000000);}
+        }
+    }
+
+    .main-bottom__signup {
+        position: relative;
+
+        flex-basis: 47%;
+
+        padding: 0 26px 26px;
+        
+        &-background {
+            position: absolute;
+            background-color: #F9F0FF;
+
+            bottom: 0;
+            left: 0;
+
+            width: 100%;
+            height: 90%;
+            
+            z-index: -1;
+        }
+    }
+}

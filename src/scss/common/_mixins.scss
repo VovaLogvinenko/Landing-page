@@ -1,0 +1,55 @@
+// Header buttons
+@mixin button($padding-y, $padding-x, $color, $bg-color) {
+    padding: $padding-y $padding-x;
+    color: $color;
+    background-color: $bg-color;
+    cursor: pointer;
+}
+
+// Background-color svg icons
+@mixin big-data($color) {
+    background-color: $color;
+    @extend %background_big-data;
+}
+
+// Position icons-blocks
+@mixin stackBg($top, $left) {
+    top: $top;
+    left: $left;
+    @extend %stackBg;
+}
+
+@mixin advancedStackBg($top, $left, $name) {
+    @include stackBg($top, $left);
+            
+    // Transition and hover
+    @extend %transitionHoverSvg;
+
+    &.active {
+        @include iconAnimation($name, $top, $left);
+        animation: $name + IconAnimation 1s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+    }
+}
+
+// Animation for block
+@mixin iconAnimation($name, $top, $left) {
+    @keyframes #{$name}IconAnimation {
+        0% {
+            opacity: 0;
+            top: calc(50% - (80px / 2));
+            left: calc(50% - (80px / 2));
+        }
+        100% {
+            opacity: 1;
+            top: $top;
+            left: $left;
+        }
+    }
+}
+
+// Filling svg
+@mixin fillSvg($color) {
+    fill: $color;
+    transition: $compain-transition;
+}

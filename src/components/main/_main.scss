@@ -1,0 +1,17 @@
+@import 'big-data/big-data';
+@import 'stack/stack';
+@import 'data-driven/data-driven';
+@import 'author/author';
+@import 'main-bottom/main-bottom';
+@import 'big-data/media-big-data';
+@import 'stack/media-stack';
+@import 'author/media-author';
+@import 'main-bottom/media-main-bottom';
+
+.main {
+    padding-top: 112px;
+    padding-bottom: 120px;
+    
+    overflow: hidden;
+}
+

@@ -1,0 +1,29 @@
+// Media breackpoints
+
+// 1024px
+@mixin laptop() {
+    @media (max-width: $breackpoint-laptop) {
+        @content;
+    }
+}
+
+// 768px
+@mixin tablet() {
+    @media (max-width: $breackpoint-tablet) {
+        @content;
+    }
+}
+
+// 425px
+@mixin mobileL() {
+    @media (max-width: $breackpoint-mobileL) {
+        @content;
+    }
+}
+
+// 320px
+@mixin mobileS() {
+    @media (max-width: $breackpoint-mobileS) {
+        @content;
+    }
+}

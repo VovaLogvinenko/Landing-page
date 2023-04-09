@@ -1,0 +1,95 @@
+@include tablet {
+    .author {
+        overflow: hidden;
+
+        // Position companies on center
+        &__companies {
+            position: relative;
+
+            .item {
+                position: absolute;
+
+                padding-top: 32px;
+                top: 0;
+
+                width: 100%;
+                height: 100%;
+
+                opacity: 0;
+                transition: all .5s ease;
+                pointer-events: none;
+            }
+
+            // Slider
+            .active-slide {
+                opacity: 1;
+                transform: translateX(0);
+            }
+    
+            .next-slide {transform: translateX(100%);}
+            
+            .last-slide {transform: translateX(-100%);}
+        }
+
+        // Arrows
+        .companies__arrows {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            width: 100%;
+            max-width: 300px;
+
+            margin: 0 auto;
+            padding-top: 32px;
+
+            left: calc(50% - 150px);
+            right: calc(50% - 150px);
+            top: -25px;
+
+            .arrow {
+                height: 15px;
+                z-index: 2;
+            }
+        }
+
+        // Dots
+        .companies__dots {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 130px;
+            margin: 20px auto 0;
+            padding-top: 32px;
+
+            .dot {
+                background-color: #9e9e9e;
+
+                width: 15px;
+                height: 15px;
+                
+                border-radius: 50%;
+                transition: all .5s ease;
+
+                &.active {background-color: #696969;}
+            }
+        }
+    }
+}
+
+@include mobileL {
+    .author {
+        &__background {
+            clip-path: polygon(0 15%, 100% 0, 100% 89%, 0% 100%);
+            height: 800px;
+        }
+    }
+}
+
+@include mobileS {
+    .author {
+        &__background {height: 850px;}
+    }
+}
