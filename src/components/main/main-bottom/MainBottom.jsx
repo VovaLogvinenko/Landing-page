@@ -13,7 +13,7 @@ function MainBottom() {
         {id: 3, item: <Sky className='sky '/>},
     ])
   return (
-    <div className='main-bottom'>
+    <div className='main-bottom container'>
         <div className="main-bottom__trusted trusted">
             <h2 className="trusted__title">See why the world's best companies use Qubly to become truly data-driven.</h2>
             <div className="trusted__text">Trusted by</div>

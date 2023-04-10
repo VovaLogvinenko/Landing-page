@@ -17,6 +17,7 @@ function Author() {
     ])
 
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [arrowBlock, setArrowBlock] = useState(false)
 
     useEffect(() => {
         const lastIndex = companies.length - 1;
@@ -38,57 +39,70 @@ function Author() {
     
   return (
     <div className='author'>
-        <div className="author__background"></div>
-        <div className='author__info container'>
-            <p className="author__quote"><q>What I love about Qubly is the easy way we can collaborate even if there is a lot of people involved in the process</q></p>
-            <div className="author__bio">
-                <img src="images/other/profile.png" alt="Profile_photo" className="author__portrait" />
-                <p className="author__name">Guillaume Cabane</p>
-                <p className="author__cto">CTO @ BigSpring</p>
-            </div>
-                <div className="author__companies">
-                    {companies.map((item, itemIndex) => {
-
-                        let position = 'next-slide'
-
-                        if(itemIndex === currentIndex) {
-                            position = 'active-slide'
-                        }
-
-                        if(itemIndex === currentIndex - 1 || (currentIndex === 0 && itemIndex === companies.length - 1)) {
-                            position = 'last-slide'
-                        }
-
-                        return(
-                            <div className={`item ${position}`} key={item.id}>{item.item}</div>
-                        )
-                    })}
+        <div className="author__background">
+            <div className='author__info container'>
+                <p className="author__quote"><q>What I love about Qubly is the easy way we can collaborate even if there is a lot of people involved in the process</q></p>
+                <div className="author__bio">
+                    <img src="images/other/profile.png" alt="Profile_photo" className="author__portrait" />
+                    <p className="author__name">Guillaume Cabane</p>
+                    <p className="author__cto">CTO @ BigSpring</p>
                 </div>
-            <div className="author__companies-function">
-                <div className="companies__arrows">
-                    <LeftArrow className='left-arrow arrow' onClick={() => setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1)}/>
-                    <RightArrow className='right-arrow arrow' onClick={() => setCurrentIndex(prevCurrentIndex => prevCurrentIndex + 1)}/>
-                </div>
-                <div className="companies__dots">
-                    {companies.map((dot, dotIndex) => {
-                        
-                        let dotPosition = ''
+                    <div className="author__companies">
+                        {companies.map((item, itemIndex) => {
 
-                        if(dotIndex === currentIndex) {
-                            dotPosition = 'active'
-                        }
+                            let position = 'next-slide'
 
-                        if(dotIndex === currentIndex - 1 || (currentIndex === 0 && dotIndex === dot.length - 1)) {
-                            dotPosition = ''
-                        }
+                            if(itemIndex === currentIndex) {
+                                position = 'active-slide'
+                            }
 
-                        return (
-                            <span 
-                                className={`dot ${dotPosition}`} 
-                                key={dot.id} 
-                            ></span>
-                        )
-                    })}
+                            if(itemIndex === currentIndex - 1 || (currentIndex === 0 && itemIndex === companies.length - 1)) {
+                                position = 'last-slide'
+                            }
+
+                            return(
+                                <div className={`item ${position}`} key={item.id}>{item.item}</div>
+                            )
+                        })}
+                    </div>
+                <div className="author__companies-function">
+                    <div className="companies__arrows">
+                        <button className='left-arrow__button' disabled={arrowBlock} onClick={() => {
+                                setArrowBlock(true)
+                                setTimeout(() => setArrowBlock(false), 500)
+                                setCurrentIndex(prevCurrentIndex => prevCurrentIndex - 1)}
+                                }> 
+                            <LeftArrow className='left-arrow arrow'/>
+                        </button>
+                        <button className='right-arrow__button' disabled={arrowBlock} onClick={() => {
+                                setArrowBlock(true)
+                                setTimeout(() => setArrowBlock(false), 500)
+                                setCurrentIndex(prevCurrentIndex => prevCurrentIndex + 1)}
+                                }>
+                            <RightArrow className='right-arrow arrow'/>
+                        </button>
+                    </div>
+                    <div className="companies__dots">
+                        {companies.map((dot, dotIndex) => {
+                            
+                            let dotPosition = ''
+
+                            if(dotIndex === currentIndex) {
+                                dotPosition = 'active'
+                            }
+
+                            if(dotIndex === currentIndex - 1 || (currentIndex === 0 && dotIndex === dot.length - 1)) {
+                                dotPosition = ''
+                            }
+
+                            return (
+                                <span 
+                                    className={`dot ${dotPosition}`} 
+                                    key={dot.id} 
+                                ></span>
+                            )
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

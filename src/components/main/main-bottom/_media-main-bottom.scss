@@ -1,6 +1,7 @@
 @include tablet {
     .main-bottom {
         flex-direction: column;
+
         margin-top: 100px;
 
         .trusted {
@@ -22,8 +23,6 @@
 
 @include mobileL {
     .main-bottom {
-        margin-top: 200px;
-        
         .trusted {&__companies {grid-gap: 50px;}}
         .main-bottom__signup {width: 100%;}
     }

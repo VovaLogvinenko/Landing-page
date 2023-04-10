@@ -17,7 +17,9 @@
 
     &__title {
         @extend %title;
+        
         opacity: 0;
+        transition: all .5s ease;
         &.active {animation: slideLeft 1s ease forwards;}
     }
 

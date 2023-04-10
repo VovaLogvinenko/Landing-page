@@ -1,15 +1,10 @@
 .author {
-    margin-top: 70px;
+    margin-top: 40px;
     
     &__background {
-        position: absolute;
-
         clip-path: polygon(0 23%, 100% 0, 100% 79%, 0% 100%);
         background: linear-gradient(175.54deg, #F9F0FF 25.81%, #E2F1FF 96.38%);
 
-        opacity: 0.47;
-
-        height: 730px;
         width: 100%;
         left: 0;
 
@@ -22,8 +17,9 @@
         align-items: center;
         text-align: center;
 
-        height: 750px;
         padding: 200px 0;
+
+        z-index: 1;
     }
 
     &__quote {

@@ -1,0 +1,29 @@
+@include tablet {
+    .data-driven {
+        margin-top: 190px;
+        flex-direction: column;
+    
+        &__text-block {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            text-align: center;
+        }
+        
+        &__image {
+            height: auto;
+            width: 100%;
+            min-width: 300px;
+            max-width: 450px;
+            
+            margin-top: 60px;
+            margin-right: 0;
+        }
+    }
+}
+
+@include mobileL {
+    .data-driven {
+        margin-top: 180px
+    }
+}

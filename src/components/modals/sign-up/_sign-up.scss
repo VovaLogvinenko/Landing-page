@@ -115,3 +115,14 @@
         padding: 32px 10px;
     }
 }
+
+@media (max-height: 500px) {
+    .register {
+        .register__input:focus~.register__label,
+        .register__input:valid~.register__label, 
+        .label-active {
+            top: -37px;
+            font-size: rem(14);
+        }
+    }
+}

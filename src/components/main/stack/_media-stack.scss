@@ -16,7 +16,7 @@
     }
 }
 
-@include mobileL {
+@media (max-width: 425px), (max-height: 500px) {
     .stack {
         overflow: hidden;
 

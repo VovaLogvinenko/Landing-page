@@ -1,5 +1,7 @@
 @include tablet {
     .big-data{
+        transition: all .5s ease;
+
         .steps {
             flex-direction: column;
 
@@ -13,10 +15,3 @@
     }
 }
 
-@media (min-height: 850px) {
-    .big-data__info {
-        margin-top: 120px;
-
-        &.active {animation: marginZero .3s ease forwards;}
-    }
-}

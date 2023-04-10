@@ -3,7 +3,7 @@
     justify-content: space-between;
     align-items: center;
 
-    margin-top: 200px;
+    margin-top: 160px;
 
     &__info {
         @extend %info;
@@ -47,26 +47,4 @@
     }
 }
 
-// Short media query 
-@include tablet {
-    .data-driven {
-        flex-direction: column;
-    
-        &__text-block {
-            display: flex;
-            align-items: center;
-            flex-direction: column;
-            text-align: center;
-        }
-        
-        &__image {
-            height: auto;
-            width: 100%;
-            min-width: 300px;
-            max-width: 450px;
-            
-            margin-top: 60px;
-            margin-right: 0;
-        }
-    }
-}
+@import 'media-data-driven'

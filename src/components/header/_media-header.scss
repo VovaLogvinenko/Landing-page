@@ -1,3 +1,17 @@
-@include mobileS {
-    .header {min-height: 850px;}
+@include tablet {
+    .header {
+        &__background {
+            clip-path: polygon(0 0, 100% 0%, 100% 80%, 0% 100%);
+            min-height: auto;
+        }
+    }
 }
+
+@include mobileL {
+    .header {
+        &__background {
+            clip-path: polygon(0 0, 100% 0%, 100% 86%, 0% 100%);
+        }
+    }
+}
+

@@ -5,9 +5,11 @@ import HeaderBody from './header-body/HeaderBody'
 function Header() {
   return (
     <header className='header'>
-      <div className='container'>
-        <HeaderTop />
-        <HeaderBody />
+      <div className="header__background">
+        <div className='container'>
+          <HeaderTop />
+          <HeaderBody />
+        </div>
       </div>
     </header>
   )
