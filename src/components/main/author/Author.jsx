@@ -36,7 +36,7 @@ function Author() {
             clearInterval(autoSlider)
         }
     }, [currentIndex])
-    
+
   return (
     <div className='author'>
         <div className="author__background">
@@ -49,15 +49,18 @@ function Author() {
                 </div>
                     <div className="author__companies">
                         {companies.map((item, itemIndex) => {
-
-                            let position = 'next-slide'
+                            let position = ''
 
                             if(itemIndex === currentIndex) {
                                 position = 'active-slide'
                             }
+                            
+                            if(itemIndex > currentIndex) {
+                                position = 'next-slide'
+                            }
 
-                            if(itemIndex === currentIndex - 1 || (currentIndex === 0 && itemIndex === companies.length - 1)) {
-                                position = 'last-slide'
+                            if(itemIndex < currentIndex) {
+                                position='last-slide'
                             }
 
                             return(
@@ -96,7 +99,7 @@ function Author() {
                             }
 
                             return (
-                                <span 
+                                <span onClick={() => {setCurrentIndex(prevCurrentIndex => prevCurrentIndex = dotIndex)}}
                                     className={`dot ${dotPosition}`} 
                                     key={dot.id} 
                                 ></span>
